@@ -1,0 +1,13 @@
+# Ignorar arquivos de dados pesados
+Dados/
+*.zip
+*.csv
+
+# Ignorar ambiente virtual e caches do Python
+venv/
+__pycache__/
+*.pyc
+
+# Ignorar configurações locais de editores
+.vscode/
+.idea/
