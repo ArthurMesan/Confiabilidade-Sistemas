@@ -5,7 +5,6 @@ import pandas as pd
 
 
 def processar_ano_completo():
-    # --- 1. Configuração de Caminhos ---
     script_dir = os.path.dirname(os.path.abspath(__file__))
     data_dir = os.path.join(os.path.dirname(script_dir), "Dados")
 
@@ -24,7 +23,6 @@ def processar_ano_completo():
     # Atualizamos o nome para refletir que são 2 anos
     arquivo_saida = os.path.join(data_dir, "tabela_vida_2023_2024.csv")
 
-    # --- 2. Dicionário de Agregação (Persiste entre as pastas) ---
     # Este dicionário vai crescer conforme novos discos aparecem durante o ano
     frota = {}
 
@@ -39,7 +37,6 @@ def processar_ano_completo():
 
     print(f"Iniciando processamento de {len(pastas_para_processar)} trimestres...")
 
-    # --- 3. Loop Externo (Pastas/Trimestres) ---
     for nome_pasta in pastas_para_processar:
         caminho_pasta = os.path.join(data_dir, nome_pasta)
 
@@ -62,7 +59,6 @@ def processar_ano_completo():
 
         print(f"\n---> Entrando na pasta: {nome_pasta} ({len(arquivos_csv)} arquivos)")
 
-        # --- 4. Loop Interno (Arquivos Diários) ---
         for i, arquivo in enumerate(arquivos_csv):
             caminho_completo = os.path.join(caminho_pasta, arquivo)
 
@@ -127,7 +123,6 @@ def processar_ano_completo():
 
         print(f"\nConcluído pasta {nome_pasta}.")
 
-    # --- 5. Salvando Resultado Final ---
     print("\n" + "-" * 40)
     print("Consolidando dados de 2024...")
 
